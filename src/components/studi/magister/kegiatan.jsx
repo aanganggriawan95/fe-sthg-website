@@ -9,7 +9,7 @@ const Kegiatan = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/cms/getKegiatanS2Hukum`
+        `${process.env.NEXT_PUBLIC_API_URL}/api/cms/getKegiatanS2Hukum`,
       );
       setData(response.data.data);
     } catch (error) {
@@ -21,31 +21,54 @@ const Kegiatan = () => {
   }, []);
   return (
     <div className="mx-6 md:mx-10 pb-10">
-      <h1 className="text-3xl font-bold text-center py-10">Kegiatan Prodi</h1>
+      <div className="flex justify-center w-full items-center py-12">
+        <div className="text-center mb-12">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
+            Kegiatan Prodi
+          </h1>
+          <p className="text-gray-500 mt-2 text-sm md:text-base">
+            Kegiatan Prodi Magister Hukum
+          </p>
+          <div className="w-20 h-1 bg-gradient-to-r from-red-600 to-black mx-auto mt-4 rounded-full"></div>
+        </div>
+      </div>
 
-      <div className="flex gap-4 flex-col-reverse md:flex-row md:justify-center">
-        {data.map((data, index) => (
-          <article className="overflow-hidden rounded-lg shadow transition hover:shadow-lg">
-            <img alt="" src={data.foto} className="h-56 w-full object-cover" />
-
-            <div className="bg-white p-4 sm:p-6">
-              {/* <time
-                datetime="2022-10-10"
-                className="block text-xs text-gray-500"
-              >
-                {" "}
-                10th Oct 2022{" "}
-              </time> */}
-
-              <p>
-                <h3 className="mt-0.5 text-lg text-gray-900">{data.judul}</h3>
-              </p>
-
-              <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
-                {data.deskripsi_kegiatan}
-              </p>
+      <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {data.map((item) => (
+          <div
+            key={item.id_kegiatan}
+            className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden"
+          >
+            {/* Image */}
+            <div className="relative h-56 overflow-hidden">
+              <img
+                src={item.foto}
+                alt={item.judul}
+                className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+              />
             </div>
-          </article>
+
+            {/* Content */}
+            <div className="p-6 flex flex-col justify-between h-[220px]">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 line-clamp-2">
+                  {item.judul}
+                </h3>
+
+                <p className="mt-3 text-sm text-gray-600 line-clamp-3">
+                  {item.deskripsi_kegiatan}
+                </p>
+              </div>
+
+              {/* Button */}
+              <a
+                href={`/detail-kegiatan?id=${item.id_kegiatan}`}
+                className="mt-4 inline-block text-sm font-medium text-red-600 hover:text-red-800 transition"
+              >
+                Baca Selengkapnya →
+              </a>
+            </div>
+          </div>
         ))}
       </div>
     </div>

@@ -1,6 +1,7 @@
 "use client";
 import { Carousel } from "@material-tailwind/react";
 import axios from "axios";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export function CaroselStaf() {
@@ -10,7 +11,7 @@ export function CaroselStaf() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          process.env.NEXT_PUBLIC_API_URL + "/api/cms/getStaf"
+          process.env.NEXT_PUBLIC_API_URL + "/api/cms/getStaf",
         );
         setData(response.data.data);
       } catch (error) {
@@ -92,22 +93,26 @@ export function CaroselStaf() {
       >
         {data.map((item, key) => (
           <div
-            key={key}
+            key={item.id}
             className="relative h-full w-full flex flex-col items-center justify-center md:flex-row"
           >
             <div className="absolute inset-0 bg-gray-900/50 z-0 sm:bg-gradient-to-r from-gray-900/95 to-gray-900/25"></div>
             <div className="md:w-1/2 flex items-center justify-center z-10">
-              <img
-                src={item.foto}
+              <Image
+                src={`${item.foto}?v=${item.updated_at}`}
+                width={1000}
+                height={1000}
                 alt={`Image of ${item.nama}`}
                 className="h-96 w-96 lg:h-[450px] lg:w-[450px] object-cover p-10 rounded-full"
               />
             </div>
             <div className="md:w-1/2 flex flex-col gap-4 items-center justify-center z-10">
-              <h2 className="text-3xl font-bold text-white uppercase">
+              <h2 className="text-xl md:text-3xl font-bold text-white uppercase">
                 {item.nama}
               </h2>
-              <p className="text-white text-xl font-semibold">{item.jabatan}</p>
+              <p className="text-white text-sm md:text-xl font-semibold">
+                {item.jabatan}
+              </p>
               {/* <p className="text-white text-xl font-semibold">
                 {item.deskripsi_jabatan}
               </p> */}

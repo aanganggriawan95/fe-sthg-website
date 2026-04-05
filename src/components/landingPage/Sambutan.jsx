@@ -5,6 +5,7 @@ import JudulComponent from "@/items/judulPage";
 import SkeletonTekst from "../selecton/text";
 import useLanguageStore from "@/store/useLanguageStore";
 import LanguageSwitcher from "../LanguageSwitcher";
+import Image from "next/image";
 
 const Sambutan = () => {
   const [data, setData] = useState([]);
@@ -26,7 +27,7 @@ const Sambutan = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          process.env.NEXT_PUBLIC_API_URL + "/api/cms/getSambutan"
+          process.env.NEXT_PUBLIC_API_URL + "/api/cms/getSambutan",
         );
 
         setData(response.data.data);
@@ -63,20 +64,23 @@ const Sambutan = () => {
       )}
       {data.map((data, key) => (
         <section
-          key={key}
+          key={data.id}
           className="overflow-hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2"
         >
           {/* Gambar tampil dulu di mobile, kemudian teks */}
           <div className=" flex justify-center items-center order-1 md:order-2">
-            <img
+            <Image
+              key={data.id}
               alt=""
-              src={data.foto}
+              width={1000}
+              height={1000}
+              src={`${data.foto}`}
               className="h-full w-[400px] object-cover rounded-full"
             />
           </div>
 
           <div className="md:px-16 mt-6 md:mt-0 flex justify-center flex-col items-center  order-2 md:order-1">
-            <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">
+            <h2 className="text-2xl  font-bold text-gray-900 md:text-3xl">
               {data.judul}
             </h2>
             <p className="text-gray-500 md:mt-4 md:block text-justify">

@@ -95,7 +95,7 @@ const menuItems = [
   },
   {
     label: "PMB",
-    href: "/",
+    href: "https://simaba.sthg.ac.id/",
     icon: Headset,
   },
   {
@@ -122,18 +122,20 @@ export default function SidebarMobile() {
   return (
     <>
       {/* Topbar (mobile only) */}
-      <div className="lg:hidden fixed w-full top-0 left-0 z-50 flex items-center justify-between px-4 py-3 bg-black text-yellow-300">
+      <div className="lg:hidden fixed w-full top-0 left-0 z-50 flex items-center justify-between px-4 py-3 bg-black text-white">
         <button onClick={toggleSidebar} aria-label="Toggle Menu">
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
         <div className="flex items-center gap-2">
-          <Image
-            src="/gambar/newLogo.png"
-            alt=""
-            width={80}
-            height={80}
-            className="w-14"
-          />
+          <a href="/">
+            <Image
+              src="/gambar/newLogo.png"
+              alt=""
+              width={80}
+              height={80}
+              className="w-14"
+            />
+          </a>
           <Image
             src="/MBKM-logo.png"
             alt=""

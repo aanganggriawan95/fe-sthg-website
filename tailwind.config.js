@@ -3,6 +3,7 @@
 const withMT = require("@material-tailwind/react/utils/withMT");
 
 export default withMT({
+  darkMode: "class",
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -29,7 +30,7 @@ export default withMT({
         sans: ["Poppins", "sans-serif"],
       },
       backgroundImage: {
-        "custom-image": "url('/gambar/bg-staf.jpg')",
+        "custom-image": "url('/gambar/staf.jpg')",
         "staf-bg": "url('/gambar/staf.jpg')",
       },
     },

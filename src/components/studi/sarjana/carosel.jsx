@@ -11,7 +11,7 @@ export function CaroselProdi() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/cms/getStafS1Hukum`
+          `${process.env.NEXT_PUBLIC_API_URL}/api/cms/getStafS1Hukum`,
         );
 
         setData(response.data.data);
@@ -93,19 +93,22 @@ export function CaroselProdi() {
     >
       {data.map((item, key) => (
         <div
-          key={key}
-          className="h-full w-full flex flex-col  items-center justify-center md:flex-row"
+          key={item.id}
+          className="h-full relative w-full flex flex-col  items-center justify-center md:flex-row"
         >
+          <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black opacity-50"></div>
           <div className="md:w-1/2 flex items-center justify-center">
             <img
-              src={item.foto}
+              src={`${item.foto}?v=${item.id}`}
               alt="image 1"
-              className="h-96 w-96 lg:h-[450px] lg:w-[450px] object-cover p-10 rounded-full"
+              className="h-96 z-[1000] w-96 lg:h-[450px] lg:w-[450px] object-cover p-10 rounded-full"
             />
           </div>
-          <div className="md:w-1/2 flex flex-col items-center justify-center">
-            <h2 className="text-4xl font-bold text-black">{item.nama}</h2>
-            <p className="text-2xl text-black">{item.jabatan}</p>
+          <div className="md:w-1/2 z-[1000] flex flex-col items-center justify-center">
+            <h2 className="text-xl md:text-3xl font-bold text-white">
+              {item.nama}
+            </h2>
+            <p className="text-xl md:text-2xl text-white">{item.jabatan}</p>
             {/* <p className=" text-2xl text-black">{item.deskripsi_jabatan}</p> */}
           </div>
         </div>

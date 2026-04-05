@@ -1,5 +1,6 @@
 "use client";
 import axios from "axios";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const MengapaSTHG = () => {
@@ -9,7 +10,7 @@ const MengapaSTHG = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          process.env.NEXT_PUBLIC_API_URL + "/api/cms/getKenapaSTHG"
+          process.env.NEXT_PUBLIC_API_URL + "/api/cms/getKenapaSTHG",
         );
         setData(response.data.data);
       } catch (error) {
@@ -18,66 +19,45 @@ const MengapaSTHG = () => {
     };
     fetchData();
   }, []);
+  console.log(data);
 
   return (
     <>
       <section className="bg-[#01012e]">
-        <div className="w-full px-4 py-8 sm:px-6 md:px-16 sm:py-12 lg:py-16">
-          <div className="items-center w-full text-white">
-            <h2 className="text-3xl text-start font-bold sm:text-4xl">
-              Kenapa Memilih STHG ?
-            </h2>
+        <section className="bg-white lg:grid lg:h-screen lg:place-content-center">
+          <div className="mx-auto w-screen max-w-7xl px-4 py-16 sm:px-6 sm:py-24 md:grid md:grid-cols-2 md:items-center md:gap-4 lg:px-8 lg:py-32">
+            <div className="max-w-prose text-left">
+              <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
+                Kenapa Memilih
+                <strong className="text-red-600"> STHG </strong>
+              </h1>
 
-            <p className="mt-4  text-justify">
-              Dengan masih memegang semangat serupa itu, STHG Tasikmalaya kini
-              berusaha untuk melayani masyarakat Tasikmalaya dengan lebih baik
-              dengan cara mendidik para generasi muda maupun memberi pencerahan
-              kepada khalayak masyarakat yang lebih luas untuk memahami hak dan
-              kewajibannya sebagai warga negara Indonesia.
-            </p>
+              <p className="mt-4 text-base text-pretty text-gray-700 sm:text-lg/relaxed">
+                Sekolah Tinggi Hukum Garut (STHG) Tasikmalaya merupakan pilihan
+                tepat bagi calon mahasiswa yang ingin mendalami ilmu hukum
+                secara profesional dan berintegritas.
+              </p>
 
-            <a
-              href="https://simaba.sthg.ac.id/"
-              className="mt-8 inline-block rounded bg-gradient-to-r from-red-700 to-black hover:bg-gradient-to-r hover:from-black hover:to-red-700 px-12 py-3 text-sm font-medium text-white transition hover:shadow focus:ring focus:ring-yellow-400"
-            >
-              Daftar Sekarang
-            </a>
-          </div>
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 mt-8">
-            {data.map((item, key) => (
-              <article className="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition hover:shadow-lg sm:p-6">
-                <span className="inline-block rounded bg-blue-600 p-2 text-white">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="size-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                    <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-                    />
-                  </svg>
-                </span>
-
-                <a href="#">
-                  <h3 className="mt-0.5 text-lg font-medium text-gray-900">
-                    {item.judul}
-                  </h3>
+              <div className="mt-4 flex gap-4 sm:mt-6">
+                <a
+                  className="inline-block rounded  bg-red-600 px-5 py-3 font-medium text-white shadow-sm transition-colors hover:bg-red-700"
+                  href="https://simaba.sthg.ac.id/"
+                >
+                  Daftar Sekarang
                 </a>
+              </div>
+            </div>
 
-                <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
-                  {item.judul}
-                </p>
-              </article>
-            ))}
+            <Image
+              src={`/gambar/newLogo.png`}
+              width={1000}
+              height={1000}
+              alt={"Logo STHG"}
+              viewBox="0 0 1024 768"
+              className="mx-auto hidden max-w-md text-gray-900 md:block"
+            ></Image>
           </div>
-        </div>
+        </section>
       </section>
     </>
   );

@@ -198,17 +198,17 @@ const Sarjana = () => {
 
       <div>
         <div>
-          <section className="bg-[#01012e] text-white">
+          <section className="bg-white text-white">
             <div className="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-16 lg:py-16">
               <div className="">
                 <h2
-                  className="text-3xl font-bold sm:text-4xl delay-[300ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0"
+                  className="text-xl text-black md:text-3xl font-bold sm:text-4xl delay-[300ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0"
                   data-taos-offset="300"
                 >
                   Program Studi S1 Hukum
                 </h2>
 
-                <p className="mt-4 text-gray-300">
+                <p className="mt-4 text-black">
                   Program studi ilmu hukum mempelajari berbagai sistem hukum
                   baik sistem Hukum Nasional maupun sistem Hukum Internasional
                   yang akan berkaitan dengan kehidupan kemasyarakatan maupun
@@ -228,14 +228,14 @@ const Sarjana = () => {
         <CaroselProdi />
       </div>
 
-      <section className="bg-[#01012e] text-white">
+      <section className="bg-white dark:bg-black text-black">
         <div className="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-16 lg:py-16">
           <div className="max-w-xl">
-            <h2 className="text-3xl font-bold sm:text-4xl">
+            <h2 className="text-xl text-black dark:text-white md:text-3xl font-bold sm:text-4xl">
               Prospek Karir di Program Studi S1 Hukum
             </h2>
 
-            <p className="mt-4 text-gray-300">
+            <p className="mt-4 dark:text-white text-black">
               Berikut adalah prospek karir di program studi S1 Hukum:
             </p>
           </div>
@@ -243,10 +243,10 @@ const Sarjana = () => {
           <div className="mt-8 grid grid-cols-1 gap-8 md:mt-16 md:grid-cols-2 md:gap-12 lg:grid-cols-3">
             {prospek.map((prospek, key) => (
               <div key={key} className="flex items-start gap-4">
-                <span className="shrink-0 rounded-lg bg-gray-800 p-4">
+                <span className="shrink-0 rounded-lg bg-red-700 p-4">
                   <svg
-                    className="h-5 w-5"
-                    fill="none"
+                    className="h-5 w-5 bg-white rounded-full"
+                    fill="white"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
@@ -265,7 +265,7 @@ const Sarjana = () => {
                 <div>
                   <h2 className="text-lg font-bold">{prospek.nilai}</h2>
 
-                  <p className="mt-1 text-sm text-gray-300">
+                  <p className="mt-1 text-sm text-black dark:text-white">
                     {prospek.keterangan}
                   </p>
                 </div>

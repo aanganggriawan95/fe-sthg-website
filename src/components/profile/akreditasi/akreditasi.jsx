@@ -18,7 +18,7 @@ const Akreditasi = () => {
             headers: {
               "Content-Type": "application/json",
             },
-          }
+          },
         );
         console.log("✅ Data fetched:", response.data);
         setAkreditasiS1Hukum(response.data.data);
@@ -36,7 +36,7 @@ const Akreditasi = () => {
             headers: {
               "Content-Type": "application/json",
             },
-          }
+          },
         );
         console.log("✅ Data fetched:", response.data);
         setAkreditasiKampus(response.data.data);
@@ -54,7 +54,7 @@ const Akreditasi = () => {
             headers: {
               "Content-Type": "application/json",
             },
-          }
+          },
         );
         console.log("✅ Data fetched:", response.data);
         setAkreditasiS2Hukum(response.data.data);
@@ -68,179 +68,97 @@ const Akreditasi = () => {
     fetchData();
   }, []);
   return (
-    <div className="font-sans pb-16">
+    <div className="font-sans bg-gray-50 min-h-screen pb-16">
+      {/* Hero */}
       <Jumbotron judul="Akreditasi" />
-      <div className="px-6 md:px-16">
-        <nav
-          className="flex py-6   md:border-b shadow-md md:shadow-none"
-          aria-label="Breadcrumb"
-        >
-          <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
-            <li className="inline-flex items-center">
-              <a
-                href="/"
-                className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white"
-              >
-                <svg
-                  className="w-3 h-3 me-2.5"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z" />
-                </svg>
-                Home
-              </a>
-            </li>
 
-            <li aria-current="page">
-              <div className="flex items-center">
-                <svg
-                  className="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 6 10"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="m1 9 4-4-4-4"
-                  />
-                </svg>
-                <span className="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">
-                  Profile
-                </span>
-              </div>
-            </li>
-            <li aria-current="page">
-              <div className="flex items-center">
-                <svg
-                  className="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 6 10"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="m1 9 4-4-4-4"
-                  />
-                </svg>
-                <span className="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">
-                  Akreditasi
-                </span>
-              </div>
-            </li>
-          </ol>
-        </nav>
-        <div className="text-justify my-10">
-          <p>
-            Badan Akreditasi Nasional Pendidikan Tinggi (BAN-PT) adalah
-            satu-satunya lembaga akreditasi yang diakui oleh Kementerian
-            Pendidikan Nasional Republik Indonesia. BAN-PT mengawasi kualitas
-            dan efisiensi pendidikan tinggi melalui proses akreditasi semua
-            program studi di institusi pendidikan tinggi di Indonesia. BAN PT
-            telah memberikan informasi kepada publik tentang status akreditasi
-            mata kuliah atau program studi di institusi tersebut, sehingga
-            masyarakat meyakini tentang kualitas pendidikan yang ditawarkan dan
-            kualitas program-program ini dapat dipertahankan dan ditingkatkan.
+      {/* Container */}
+      <div className="max-w-7xl mx-auto px-4 md:px-16">
+        {/* Breadcrumb */}
+        <div className="bg-white border-b rounded-xl mt-6">
+          <nav className="px-4 py-4 text-sm text-gray-600">
+            <ol className="flex items-center space-x-2">
+              <li>
+                <a href="/" className="hover:text-blue-600 transition">
+                  Home
+                </a>
+              </li>
+              <li>/</li>
+              <li className="text-gray-400">Profile</li>
+              <li>/</li>
+              <li className="text-gray-800 font-medium">Akreditasi</li>
+            </ol>
+          </nav>
+        </div>
+
+        {/* Deskripsi */}
+        <div className="bg-white rounded-2xl shadow-sm p-6 md:p-8 mt-8">
+          <p className="text-gray-600 leading-relaxed text-justify">
+            Badan Akreditasi Nasional Perguruan Tinggi (BAN-PT) merupakan
+            lembaga resmi yang bertugas menilai mutu pendidikan tinggi di
+            Indonesia. Melalui proses akreditasi, BAN-PT memastikan bahwa setiap
+            program studi memenuhi standar kualitas yang ditetapkan sehingga
+            masyarakat dapat memperoleh informasi yang akurat dan terpercaya
+            mengenai mutu pendidikan.
           </p>
         </div>
 
-        <div className="relative overflow-x-auto">
-          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead className="text-xs  uppercase bg-gray-900 text-white dark:bg-gray-700 dark:text-gray-400">
-              <tr>
-                <th scope="col" className="px-6 py-3">
-                  Nama
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Akreditasi
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Lihat Akreditasi
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Nomor SK
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Masa Berlaku (dd/mm/yyyy)
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {akreditasiKampus.map((akreditasi, key) => (
-                <tr
-                  key={key}
-                  className="bg-white dark:bg-gray-800 dark:border-gray-700"
-                >
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    {akreditasi.institusi}
-                  </th>
-                  <td className="px-6 py-4">{akreditasi.akreditasi}</td>
-                  <td className="px-6 py-4">
-                    <a href={akreditasi.file} target="_blank">
-                      Lihat Akreditasi
-                    </a>
-                  </td>
-                  <td className="px-6 py-4">{akreditasi.nomor_sk}</td>
-                  <td className="px-6 py-4">{akreditasi.masa_berlaku}</td>
+        {/* Table */}
+        <div className="bg-white rounded-2xl shadow-sm mt-8 overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm text-left">
+              {/* Header */}
+              <thead className="bg-gray-900 text-white text-xs uppercase">
+                <tr>
+                  <th className="px-6 py-4">Nama</th>
+                  <th className="px-6 py-4">Akreditasi</th>
+                  <th className="px-6 py-4">Dokumen</th>
+                  <th className="px-6 py-4">Nomor SK</th>
+                  <th className="px-6 py-4">Masa Berlaku</th>
                 </tr>
-              ))}
-              {akreditasiS1Hukum.map((akreditasi) => (
-                <tr className="bg-white dark:bg-gray-800 dark:border-gray-700">
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    {akreditasi.institusi}
-                  </th>
-                  <td className="px-6 py-4">{akreditasi.akreditasi}</td>
-                  <td className="px-6 py-4">
-                    <a href={akreditasi.file} target="_blank">
-                      Lihat Akreditasi
-                    </a>
-                  </td>
-                  <td className="px-6 py-4">{akreditasi.no_sk}</td>
-                  <td className="px-6 py-4">{akreditasi.masa_berlaku}</td>
-                </tr>
-              ))}
-              {akreditasiS2Hukum.map((akreditasi) => (
-                <tr className="bg-white dark:bg-gray-800 dark:border-gray-700">
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    {akreditasi.institusi}
-                  </th>
-                  <td className="px-6 py-4">{akreditasi.akreditasi}</td>
-                  <td className="px-6 py-4">
-                    <a href={akreditasi.file} target="_blank">
-                      Lihat Akreditasi
-                    </a>
-                  </td>
-                  <td className="px-6 py-4">{akreditasi.no_sk}</td>
-                  <td className="px-6 py-4">{akreditasi.masa_berlaku}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+
+              {/* Body */}
+              <tbody className="divide-y">
+                {[
+                  ...akreditasiKampus,
+                  ...akreditasiS1Hukum,
+                  ...akreditasiS2Hukum,
+                ].map((akreditasi, index) => (
+                  <tr key={index} className="hover:bg-gray-50 transition">
+                    <td className="px-6 py-4 font-medium text-gray-900">
+                      {akreditasi.institusi}
+                    </td>
+
+                    {/* Badge Akreditasi */}
+                    <td className="px-6 py-4">
+                      <span className="px-3 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-700">
+                        {akreditasi.akreditasi}
+                      </span>
+                    </td>
+
+                    {/* Link */}
+                    <td className="px-6 py-4">
+                      <a
+                        href={akreditasi.file}
+                        target="_blank"
+                        className="text-blue-600 hover:underline"
+                      >
+                        Lihat
+                      </a>
+                    </td>
+
+                    <td className="px-6 py-4">
+                      {akreditasi.nomor_sk || akreditasi.no_sk}
+                    </td>
+
+                    <td className="px-6 py-4">{akreditasi.masa_berlaku}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-        {/* <TabsAkreditasi
-          akreditasiS1={akreditasiS1Hukum}
-          akreditasiKampus={akreditasiKampus}
-          akreditasiS2={akreditasiS2Hukum}
-        /> */}
       </div>
     </div>
   );

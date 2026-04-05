@@ -7,7 +7,7 @@ const AllBerita = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/cms/getBerita`
+          `${process.env.NEXT_PUBLIC_API_URL}/api/cms/getBerita`,
         );
         setBerita(response.data.data);
       } catch (error) {
@@ -34,58 +34,41 @@ const AllBerita = () => {
           </div>
 
           <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {berita.map((berita, key) => (
-              <a
-                key={key}
-                className="block rounded-xl border shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
-                href={`/berita-detail/${berita.slug}`}
+            {berita.map((item, key) => (
+              <div
+                key={item.id_berita}
+                className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden"
               >
-                <article className="overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm">
+                {/* Image */}
+                <div className="relative h-56 overflow-hidden">
                   <img
-                    alt=""
-                    src={berita.foto}
-                    className="h-56 w-full object-cover"
+                    src={item.foto}
+                    alt={item.judul}
+                    className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
                   />
+                </div>
 
-                  <div className="p-4 sm:p-6">
-                    <a href="#">
-                      <h3 className="text-lg font-medium text-gray-900">
-                        {berita.judul}
-                      </h3>
-                    </a>
+                {/* Content */}
+                <div className="p-6 flex flex-col justify-between h-[220px]">
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 line-clamp-2">
+                      {item.judul}
+                    </h3>
 
-                    <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500 ">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Cumque corporis alias quam, ducimus porro totam amet modi,
-                      culpa vitae quidem reiciendis, obcaecati unde sint
-                      assumenda iste nam praesentium vero debitis aut eaque
-                      dolores dolorem fugiat! Rem accusantium, est quis pariatur
-                      quo autem nesciunt incidunt, praesentium commodi quidem,
-                      minus aliquam. Ducimus iusto esse consequatur rem
-                      praesentium possimus similique totam! Doloribus quo
-                      laborum sint, deleniti pariatur perspiciatis ab rem
-                      delectus, iure sunt nesciunt enim blanditiis, maxime
-                      voluptatem aperiam necessitatibus sit voluptas. Maxime
-                      autem qui commodi? Debitis fugiat delectus, molestias
-                      praesentium iusto ratione unde impedit ex laboriosam sit
-                      sequi fugit odio natus? Officiis!
+                    <p className="mt-3 text-sm text-gray-600 line-clamp-3">
+                      {item.deskripsi}
                     </p>
-
-                    <a
-                      href="#"
-                      className="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600"
-                    >
-                      Find out more
-                      <span
-                        aria-hidden="true"
-                        className="block transition-all group-hover:ms-0.5 rtl:rotate-180"
-                      >
-                        &rarr;
-                      </span>
-                    </a>
                   </div>
-                </article>
-              </a>
+
+                  {/* Button */}
+                  <a
+                    href={`/detail-berita?slug=${item.slug}`}
+                    className="mt-4 inline-block text-sm font-medium text-red-600 hover:text-red-800 transition"
+                  >
+                    Baca Selengkapnya →
+                  </a>
+                </div>
+              </div>
             ))}
           </div>
         </div>

@@ -23,7 +23,7 @@ export default function VisiMisi() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          process.env.NEXT_PUBLIC_API_URL + "/api/cms/getVisiMisi"
+          process.env.NEXT_PUBLIC_API_URL + "/api/cms/getVisiMisi",
         );
         setData(response.data.data);
         console.log(response.data.data);
@@ -34,30 +34,52 @@ export default function VisiMisi() {
     fetchData();
   }, []);
 
-  console.log(data);
   return (
-    <div>
+    <div className="bg-white min-h-screen">
+      {/* Hero */}
       <Jumbotron judul="Visi dan Misi" />
 
-      <section className="bg-white text-black max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
-        <div className="mb-14">
-          <div className="mx-auto max-w-3xl ">
-            <h2 className="text-3xl font-bold sm:text-4xl uppercase">
+      {/* Content */}
+      <section className="max-w-6xl mx-auto px-4 md:px-16 py-12">
+        <div className=" rounded-2xl  p-6 md:p-10">
+          {/* Header */}
+          <div className="max-w-3xl">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 uppercase">
               {data[0]?.judul || "Visi dan Misi"}
             </h2>
-            <p className="mt-4 text-black">
+
+            <div className="w-16 h-1 bg-red-600 mt-3 mb-5 rounded"></div>
+
+            <p className="text-gray-600 leading-relaxed">
               Sekolah Tinggi Hukum Galunggung (STHG) Tasikmalaya memiliki visi
               dan misi yang jelas untuk menghasilkan lulusan yang berkompeten
               dan siap berkontribusi bagi masyarakat.
             </p>
           </div>
-          <div className="mx-auto max-w-3xl  mt-5">
-            <h2 className="text-xl font-bold sm:text-2xl ">Visi</h2>
-            <p className="mt-4 text-black">{data[0]?.visi || "Visi"}</p>
-          </div>
-          <div className="mx-auto max-w-3xl  mt-5">
-            <h2 className="text-xl font-bold sm:text-2xl ">Misi</h2>
-            <p className="mt-4 text-black">{data[0]?.misi || "Misi"}</p>
+
+          {/* Grid Visi & Misi */}
+          <div className="grid md:grid-cols-2 gap-8 mt-10">
+            {/* Visi */}
+            <div className="bg-blue-50 border border-blue-100 rounded-2xl p-6 transition duration-300 hover:shadow-md">
+              <h3 className="text-xl font-semibold text-blue-700">Visi</h3>
+
+              <div className="w-12 h-1 bg-red-600 mt-2 mb-4 rounded"></div>
+
+              <p className="text-gray-700 leading-relaxed">
+                {data[0]?.visi || "Visi"}
+              </p>
+            </div>
+
+            {/* Misi */}
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 transition duration-300 hover:shadow-md">
+              <h3 className="text-xl font-semibold text-gray-800">Misi</h3>
+
+              <div className="w-12 h-1 bg-red-600 mt-2 mb-4 rounded"></div>
+
+              <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+                {data[0]?.misi || "Misi"}
+              </p>
+            </div>
           </div>
         </div>
       </section>

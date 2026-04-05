@@ -26,7 +26,7 @@ export function KegiatanSTHG() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/cms/getKegiatan`
+          `${process.env.NEXT_PUBLIC_API_URL}/api/cms/getKegiatan`,
         );
         setKegiatan(response.data.data);
       } catch (error) {
@@ -37,46 +37,73 @@ export function KegiatanSTHG() {
   }, []);
   console.log("Kegiatan", kegiatan);
   return (
-    <div className="w-full  px-6 md:px-16 border-b-2 pb-20">
-      <div className="flex justify-center w-full items-center py-10">
-        <h1 className={`font-bold text-2xl text-center text-[#01012e]`}>
-          KEGIATAN STHG
-        </h1>
+    <div className="w-full px-6 md:px-16 lg:px-28 border-b border-gray-200 pb-24">
+      {/* Title */}
+      <div className="flex justify-center w-full items-center py-12">
+        <div className="text-center mb-12">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
+            Kegiatan STHG
+          </h1>
+          <p className="text-gray-500 mt-2 text-sm md:text-base">
+            Kegiatan Sekolah Tinggi Hukum Galunggung
+          </p>
+          <div className="w-20 h-1 bg-gradient-to-r from-red-600 to-black mx-auto mt-4 rounded-full"></div>
+        </div>
       </div>
 
-      <div className="w-full relative  py-10 mx-auto pb-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {kegiatan.length === 0 && <CardPlacehoderSkeleton />}
+      {/* Grid */}
+      <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {kegiatan.slice(0, 3).map((item) => (
+          <div
+            key={item.id_kegiatan}
+            className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden"
+          >
+            {/* Image */}
+            <div className="relative h-56 overflow-hidden">
+              <img
+                src={item.foto}
+                alt={item.judul}
+                className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+              />
+            </div>
 
-        {kegiatan.slice(0, 3).map((item, key) => (
-          <Card className="mt-6 w-full">
-            <CardHeader color="blue-gray" className="relative h-56">
-              <img src={item.foto} alt="card-image" />
-            </CardHeader>
-            <CardBody>
-              <Typography variant="h5" color="blue-gray" className="mb-2">
-                {item.judul}
-              </Typography>
-              <Typography>
-                {item.deskripsi_kegiatan.split(" ").slice(0, 100).join(" ")}
-                {item.deskripsi_kegiatan.split(" ").length > 100 && "..."}
-              </Typography>
-            </CardBody>
-            <CardFooter className="pt-0">
-              <a href={`/detail-kegiatan/${item.id_kegiatan}`}>
-                <Button className="bg-gradient-to-r from-red-700 to-black">
-                  {" "}
-                  Read More
-                </Button>
+            {/* Content */}
+            <div className="p-6 flex flex-col justify-between h-[220px]">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 line-clamp-2">
+                  {item.judul}
+                </h3>
+
+                <p className="mt-3 text-sm text-gray-600 line-clamp-3">
+                  {item.deskripsi_kegiatan}
+                </p>
+              </div>
+
+              {/* Button */}
+              <a
+                href={`/detail-kegiatan?id=${item.id_kegiatan}`}
+                className="mt-4 inline-block text-sm font-medium text-red-600 hover:text-red-800 transition"
+              >
+                Baca Selengkapnya →
               </a>
-            </CardFooter>
-          </Card>
+            </div>
+          </div>
         ))}
       </div>
-      <div className="flex justify-center w-full">
-        <Button className="flex  items-center justify-center bg-gradient-to-r from-red-700 to-black hover:bg-gradient-to-r hover:from-black hover:to-red-700  py-3 text-sm font-medium text-white transition hover:shadow focus:ring focus:ring-yellow-400">
-          <a href="/kegiatan">Kegiatan Lainnya</a>
-          <ChevronRight />
-        </Button>
+
+      {/* Button bawah */}
+
+      <div className="flex justify-center mt-14">
+        <a
+          href="/kegiatan"
+          className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-red-600 text-white text-sm font-medium hover:bg-red-700 transition-all duration-300 shadow-md hover:shadow-lg"
+        >
+          Kegiatan Lainnya
+          <ChevronRight
+            size={18}
+            className="w-4 h-4 group-hover:translate-x-1 transition"
+          />
+        </a>
       </div>
     </div>
   );

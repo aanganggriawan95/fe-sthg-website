@@ -4,10 +4,11 @@ const Medsos = () => {
   return (
     <section className="w-full px-5 md:px-16 pb-16">
       <div>
-        <div className="flex justify-center w-full items-center py-10">
-          <h1 className={`font-bold text-2xl mt-10 text-start text-[#000]`}>
-            MEDIA SOSIAL
+        <div className="text-center mb-12  mt-6">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
+            Media Sosial
           </h1>
+          <div className="w-16 h-1 bg-red-600 mx-auto mt-3 rounded"></div>
         </div>
         <div className="flex flex-col md:flex-row w-full pt-8">
           <div className="w-full md:w-1/2">

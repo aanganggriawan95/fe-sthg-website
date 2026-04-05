@@ -86,7 +86,7 @@ const Navbar = () => {
             <ul className="flex justify-center gap-4 sm:justify-start md:gap-4">
               <li>
                 <a
-                  href="#"
+                  href="https://www.facebook.com/sthgofficial"
                   rel="noreferrer"
                   target="_blank"
                   className="text-yellow-300 transition hover:text-teal-700/75"
@@ -109,7 +109,7 @@ const Navbar = () => {
 
               <li>
                 <a
-                  href="#"
+                  href="https://instagram.com/sth_galunggung"
                   rel="noreferrer"
                   target="_blank"
                   className="text-yellow-300 transition hover:text-teal-700/75"
@@ -132,19 +132,37 @@ const Navbar = () => {
 
               <li>
                 <a
-                  href="#"
+                  href="https://www.youtube.com/@sth_galunggung"
                   rel="noreferrer"
                   target="_blank"
-                  className="text-yellow-300 transition hover:text-teal-700/75"
+                  className="text-yellow-300 transition hover:text-red-600/80"
                 >
-                  <span className="sr-only">Twitter</span>
+                  <span className="sr-only">YouTube</span>
                   <svg
                     className="h-6 w-6"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
                   >
-                    <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                    <path d="M23.498 6.186a2.997 2.997 0 00-2.11-2.12C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.388.566a2.997 2.997 0 00-2.11 2.12A31.05 31.05 0 000 12a31.05 31.05 0 00.502 5.814 2.997 2.997 0 002.11 2.12C4.495 20.5 12 20.5 12 20.5s7.505 0 9.388-.566a2.997 2.997 0 002.11-2.12A31.05 31.05 0 0024 12a31.05 31.05 0 00-.502-5.814zM9.75 15.568V8.432L15.818 12 9.75 15.568z" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://tiktok.com/@sth_galunggung"
+                  rel="noreferrer"
+                  target="_blank"
+                  className="text-yellow-300 transition hover:text-red-600/80"
+                >
+                  <span className="sr-only">TikTok</span>
+                  <svg
+                    className="h-6 w-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M12.75 2h2.25a5.25 5.25 0 005.25 5.25v2.25a7.47 7.47 0 01-4.5-1.5v7.125a6.375 6.375 0 11-6.375-6.375c.375 0 .75.03 1.125.09v2.31a4.125 4.125 0 10 3.75 4.11V2z" />
                   </svg>
                 </a>
               </li>
@@ -153,14 +171,14 @@ const Navbar = () => {
           <div className="flex items-center">
             <ul className="text-yellow-300 flex gap-4 text-sm">
               <li>
-                <a href="">Kerjasama</a>
+                <a href="/kegiatan">Kegiatan</a>
               </li>
 
               <li>
-                <a href="">Berita</a>
+                <a href="/berita">Berita</a>
               </li>
               <li>
-                <a href="">Pengumuman</a>
+                <a href="/akreditasi">Akreditasi</a>
               </li>
             </ul>
 

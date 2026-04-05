@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Jumbotron from "@/items/jumbotron";
-import { BlogCard } from "@/items/card";
+
 import CardSwiper from "./swipper";
 
 const Breadcrumb = () => (

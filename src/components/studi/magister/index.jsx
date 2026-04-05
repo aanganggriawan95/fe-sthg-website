@@ -194,17 +194,17 @@ const Master = () => {
 
       <div>
         <div>
-          <section className="bg-[#01012e] text-white">
-            <div className="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-16 lg:py-16">
+          <section className="bg-white text-black">
+            <div className=" px-4 py-8 sm:px-6 sm:py-12 lg:px-16 lg:py-16">
               <div className="">
                 <h2
-                  className="text-3xl font-bold sm:text-4xl delay-[300ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0"
+                  className="text-xl dark:text-white md:text-3xl font-bold sm:text-4xl delay-[300ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0"
                   data-taos-offset="300"
                 >
                   Program Studi S2 Hukum
                 </h2>
 
-                <p className="mt-4 text-gray-300">
+                <p className="mt-4 text-black dark:text-gray-300">
                   Program studi Ilmu Hukum merupakan bidang studi yang mendalami
                   beragam sistem hukum, baik di tingkat nasional maupun
                   internasional, yang secara langsung berpengaruh pada kehidupan
@@ -224,32 +224,31 @@ const Master = () => {
           </section>
         </div>
       </div>
-      <div className="bg-custom-image bg-cover bg-center md:h-[600px] flex items-center py-10">
+      <div className="bg-custom-image relative bg-cover bg-center md:h-[600px] flex items-center py-10">
+        <div className="absolute inset-0 bg-gray-900/50 z-0 sm:bg-gradient-to-r from-gray-900/95 to-gray-900/25"></div>
         <JumbotronKaprodi />
       </div>
 
-      <section className="bg-[#01012e] text-white">
+      <section className="bg-white text-black">
         <div className="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-16 lg:py-16">
           <div className="max-w-xl">
-            <h2 className="text-3xl font-bold sm:text-4xl">
+            <h2 className="text-xl dark:text-white md:text-3xl font-bold sm:text-4xl">
               Prospek Karir di Program Studi Ilmu Hukum
             </h2>
 
-            <p className="mt-4 text-gray-300">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
-              dolores iure fugit totam iste obcaecati. Consequatur ipsa quod
-              ipsum sequi culpa delectus, cumque id tenetur quibusdam, quos fuga
-              minima.
+            <p className="mt-4 text-black">
+              Program magister hukum memiliki banyak peluang karir di bidang
+              hukum, baik di tingkat nasional maupun internasional.
             </p>
           </div>
 
           <div className="mt-8 grid grid-cols-1 gap-8 md:mt-16 md:grid-cols-2 md:gap-12 lg:grid-cols-3">
             {prospek.map((prospek, key) => (
               <div key={key} className="flex items-start gap-4">
-                <span className="shrink-0 rounded-lg bg-gray-800 p-4">
+                <span className="shrink-0 rounded-lg bg-red-700 p-4">
                   <svg
-                    className="h-5 w-5"
-                    fill="none"
+                    className="h-5 w-5 bg-white rounded-full"
+                    fill="white"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
@@ -268,7 +267,7 @@ const Master = () => {
                 <div>
                   <h2 className="text-lg font-bold">{prospek.nilai}</h2>
 
-                  <p className="mt-1 text-sm text-gray-300">
+                  <p className="mt-1 text-sm text-black">
                     {prospek.keterangan}
                   </p>
                 </div>

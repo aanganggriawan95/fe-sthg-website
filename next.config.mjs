@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "standalone",
+  output: "export",
+  trailingSlash: true,
   images: {
-   
-    domains: ['api.sthg.ac.id'],
+    domains: ["api.sthg.ac.id"],
+    unoptimized: true,
   },
 };
 

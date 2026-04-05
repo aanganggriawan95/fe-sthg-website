@@ -28,7 +28,7 @@ export default function Home() {
           video.muted = true; // Mute suara
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
 
     if (videoRef.current) {
@@ -44,7 +44,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-start">
-      <div className="w-full">
+      <div className="w-full mt-20">
         <video ref={videoRef} autoPlay loop playsInline className="w-full">
           <source src="/vidio/profile.mp4" type="video/mp4" />
           Your browser does not support the video tag.
@@ -53,8 +53,8 @@ export default function Home() {
 
       <Sambutan />
       <CaroselStaf />
-      <Pengmuman />
       <MengapaSTHG />
+      <Pengmuman />
       <BeritaSTHG />
       <KegiatanSTHG />
       <Kerjasama />

@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
+import Image from "next/image";
 
 const Kerjasama = () => {
   const [data, setData] = useState([]);
@@ -15,7 +16,7 @@ const Kerjasama = () => {
   const getData = async () => {
     try {
       const response = await axios.get(
-        process.env.NEXT_PUBLIC_API_URL + "/api/cms/getKerjasamaSTHG"
+        process.env.NEXT_PUBLIC_API_URL + "/api/cms/getKerjasamaSTHG",
       );
       setData(response.data.data);
     } catch (error) {
@@ -28,95 +29,55 @@ const Kerjasama = () => {
     getData();
   }, []);
   return (
-    <div className="w-full relative px-6 md:px-16 border-b-2 py-10">
-      <div className="flex justify-center w-full items-center mb-10">
-        <h1 className={`font-bold text-2xl  text-center text-[#000]`}>
-          KERJASAMA KAMI
+    <div className="w-full bg-gray-50 px-4 md:px-16 py-14">
+      {/* Title */}
+      <div className="text-center mb-12">
+        <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
+          Kerjasama Kami
         </h1>
+        <div className="w-16 h-1 bg-red-600 mx-auto mt-3 rounded"></div>
       </div>
-      <div className=" relative">
-        <div className="absolute top-1/2 transform -translate-y-1/2 left-0 z-10">
-          <button
-            id="prevBtn"
-            className="p-2 bg-gradient-to-r from-red-700 to-black text-white rounded-full shadow-lg"
-          >
-            <svg
-              class="w-6 h-6 text-white dark:text-white"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="m15 19-7-7 7-7"
-              />
-            </svg>
-          </button>
-        </div>
-        <div className="absolute top-1/2 transform -translate-y-1/2 right-0 z-10">
-          <button
-            id="nextBtn"
-            className="p-2 bg-gradient-to-r from-red-700 to-black text-white rounded-full shadow-lg"
-          >
-            <svg
-              class="w-6 h-6 text-white dark:text-white"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="m9 5 7 7-7 7"
-              />
-            </svg>
-          </button>
-        </div>
-        <Swiper
-          modules={[Navigation, Pagination]}
-          spaceBetween={30}
-          slidesPerView={1} // Default untuk layar kecil
-          navigation={{
-            nextEl: "#nextBtn",
-            prevEl: "#prevBtn",
-          }}
-          pagination={{ clickable: true }}
-          breakpoints={{
-            640: {
-              slidesPerView: 1, // 1 slide pada layar mobile
-            },
-            768: {
-              slidesPerView: 3, // 3 slides pada layar medium
-            },
-            1024: {
-              slidesPerView: 4, // 4 slides pada layar besar
-            },
-          }}
-          className="swiper-container"
+
+      {/* Grid */}
+      <div className="flex justify-center">
+        <div
+          className="
+        grid gap-8
+        grid-cols-2
+        sm:grid-cols-3
+        md:grid-cols-4
+        lg:grid-cols-5
+        justify-center
+        items-center
+      "
         >
-          {data.map((data, index) => (
-            <SwiperSlide key={data.id} className="swiper-slide-container">
-              <a
-                href={data.link}
-                className="flex flex-col gap-2 justify-center items-center"
-              >
-                <img src={data.foto_or_logo} alt="Kerjasama" className="h-32" />
-                <span className="font-semibold">{data.judul}</span>
-              </a>
-            </SwiperSlide>
+          {data.map((item) => (
+            <a
+              key={item.id}
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center text-center"
+            >
+              {/* Logo bulat */}
+              <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-white shadow-md flex items-center justify-center overflow-hidden transition duration-300 group-hover:shadow-xl group-hover:-translate-y-2">
+                <Image
+                  width={1000}
+                  height={1000}
+                  unoptimized
+                  src={`${item.foto_or_logo}?v=${item.id}`}
+                  alt={item.judul}
+                  className="w-16 h-16 object-contain grayscale group-hover:grayscale-0 transition duration-300 group-hover:scale-110"
+                />
+              </div>
+
+              {/* Nama */}
+              <span className="mt-4 text-sm font-medium text-gray-700 group-hover:text-red-600 transition">
+                {item.judul}
+              </span>
+            </a>
           ))}
-        </Swiper>
+        </div>
       </div>
     </div>
   );
