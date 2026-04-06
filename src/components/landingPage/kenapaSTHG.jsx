@@ -33,9 +33,7 @@ const MengapaSTHG = () => {
               </h1>
 
               <p className="mt-4 text-base text-pretty text-gray-700 sm:text-lg/relaxed">
-                Sekolah Tinggi Hukum Garut (STHG) Tasikmalaya merupakan pilihan
-                tepat bagi calon mahasiswa yang ingin mendalami ilmu hukum
-                secara profesional dan berintegritas.
+                {data[0]?.deskripsi}
               </p>
 
               <div className="mt-4 flex gap-4 sm:mt-6">
@@ -49,7 +47,7 @@ const MengapaSTHG = () => {
             </div>
 
             <Image
-              src={`/gambar/newLogo.png`}
+              src={data[0]?.foto_or_logo}
               width={1000}
               height={1000}
               alt={"Logo STHG"}
